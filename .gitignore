@@ -250,3 +250,13 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+TBA.API/obj/
+TBA.API/bin/
+TBA.DataAccess/obj/
+TBA.DataAccess/bin/
+TBA.EntityModel/obj/
+TBA.EntityModel/bin/
+TBA.Model/obj/
+TBA.Model/bin/
+TBA.Utils/obj/
+TBA.Utils/bin/
