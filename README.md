@@ -1,2 +1,4 @@
 # TokenBasedAuthentication
-Web api project with token based authentication with refresh token
+This project will show you how to create web api with token based authentication.
+It uses repository layer with <a href="https://github.com/StackExchange/Dapper">Dapper</a>. 
+It uses <a href="https://autofac.org/">AutoFac</a> for dependancy injection. 
