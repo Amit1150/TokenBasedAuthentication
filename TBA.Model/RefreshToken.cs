@@ -8,12 +8,12 @@ namespace TBA.Model
     {
         [Key]
         public int Id { get; set; }
-        public int AppUserId { get; set; }
+        public string RefreshTokenId { get; set; }
+        public int UserId { get; set; }
         public DeviceType DeviceType { get; set; }
         public string DeviceId { get; set; }
         public DateTime IssuedUtc { get; set; }
         public DateTime ExpiresUtc { get; set; }
-        public string ProtectedTicket { get; set; }
-        public string AllowedOrigin { get; set; }
+        public string ProtectedTicket { get; set; } 
     }
 }

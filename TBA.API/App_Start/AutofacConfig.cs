@@ -1,16 +1,15 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
-using log4net;
-using log4net.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.DataProtection;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
 using TBA.API.Helper;
 using TBA.DataAccess.Providers;
-
+using System.Linq;
+using System.Net.Http;
 namespace TBA.API
 {
     public static class AutofacConfig
@@ -25,6 +24,12 @@ namespace TBA.API
                .AsImplementedInterfaces().InstancePerRequest();
 
             builder.RegisterModule(new LoggingModule());
+
+            builder.Register<IdentityFactoryOptions<ApplicationUserManager>>(c => new IdentityFactoryOptions<ApplicationUserManager>() { DataProtectionProvider = new DpapiDataProtectionProvider("SBS.WebAPI") });
+
+            builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
+            builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).As<IAuthenticationManager>();
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);

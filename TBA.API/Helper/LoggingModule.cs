@@ -1,10 +1,7 @@
 ﻿using Autofac.Core;
 using log4net;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Web;
 
 namespace TBA.API.Helper
 {
